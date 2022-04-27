@@ -1,0 +1,6 @@
+USE master
+GO
+    DROP DATABASE IF EXISTS CoffeeShopDB;
+
+GO
+    CREATE DATABASE CoffeeShopDB;
