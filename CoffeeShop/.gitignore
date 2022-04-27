@@ -1,2 +1,6 @@
 WeatherForecast.cs
 Controllers\WeatherForecastController.cs
+bin
+obj
+appsettings.json
+appsettings.Development.json
