@@ -13,11 +13,13 @@ namespace CoffeeShop.Controllers
             return CoffeeShopQuery.GetAllData("Orders");
         }
 
+        [HttpGet("[GetAllCustomers]")]
         public static string GetAllCustomers()
         {
             return CoffeeShopQuery.GetAllData("Customers");
         }
 
+        [HttpGet("[GetAllBaristas]")]
         public static string GetAllBaristas()
         {
             return CoffeeShopQuery.GetAllData("Baristas");
