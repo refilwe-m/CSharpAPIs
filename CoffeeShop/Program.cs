@@ -1,4 +1,5 @@
-//using CoffeeShop.Configuration;
+using CoffeeShop.Controllers;
+using CoffeeShop.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,9 +22,11 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-//control to DB
-//ConnectDB.ConnectToDB();
+//app.UseRouting();
 
+app.MapGet("/orders", () => CoffeeShopController.GetAllOrders());
+app.MapGet("/customers", () => CoffeeShopController.GetAllCustomers());
+app.MapGet("/baristas", () => CoffeeShopController.GetAllBaristas());
 app.MapControllers();
 
 app.Run();
