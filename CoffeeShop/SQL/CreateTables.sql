@@ -20,7 +20,7 @@ GO
 		Rating INT CHECK (
 			Rating <= 5
 			AND Rating >= 1
-		) NOT NULL,
+		) NOT NULL DEFAULT 1,
 	);
 
 GO
