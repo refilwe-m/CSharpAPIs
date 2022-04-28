@@ -34,7 +34,13 @@ app.MapGet("/countallcustomers", () => CoffeeShopController.CountAllCoustomers()
 app.MapGet("/countallbaristas", () => CoffeeShopController.CountAllBaristas());
 
 app.MapPost("/addorder", (CoffeeShop.Controllers.Order order) => CoffeeShopController.AddOrder(order));
+app.MapPost("/addcustomer", (CoffeeShop.Controllers.Customer customer) => CoffeeShopController.AddCustomer(customer));
+app.MapPost("/addbarista", (CoffeeShop.Controllers.Barista barista) => CoffeeShopController.AddBarista(barista));
+
 app.MapDelete("/deleteorder/{id}", (int id) => CoffeeShopController.DeleteOrder(id));
+app.MapDelete("/deletecustomer/{id}", (int id) => CoffeeShopController.DeleteCustomer(id));
+app.MapDelete("/deletebarista/{id}", (int id) => CoffeeShopController.DeleteBarista(id));
+
 
 app.MapControllers();
 

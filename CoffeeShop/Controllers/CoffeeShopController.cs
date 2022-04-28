@@ -93,6 +93,21 @@ namespace CoffeeShop.Controllers
             return "Order Deleted";
         }
 
+        [HttpDelete("{id}")]
+        public static string DeleteCustomer(int id)
+        {
+            CoffeeShopQuery.RunQuery($"DELETE FROM Customers WHERE CustomerID = {id}");
+            return "Customer Deleted";
+        }
+
+        [HttpDelete("{id}")]
+        public static string DeleteBarista(int id)
+        {
+            CoffeeShopQuery.RunQuery($"DELETE FROM Baristas WHERE BaristaID = {id}");
+            return "Barista Deleted";
+        }
+        
+
         //return command.ExecuteReader();
         /*  string res = "";
          var reader = command.ExecuteReader();
