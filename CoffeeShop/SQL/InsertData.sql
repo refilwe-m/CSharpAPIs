@@ -43,7 +43,7 @@ INSERT INTO
         OrderAssignee
     )
 VALUES
-    (1, 'Latte', 3, 25.00, 1),
-    (2, 'Cuppuccino', 2, 33.00, 2),
-    (3, 'Espresso', 1, 19.00, 3),
-    (1, 'Mocha', 1, 22.00, 4)
+    (1, 'Latte', 3, '25.00', 1),
+    (2, 'Cuppuccino', 2, '33.00', 2),
+    (3, 'Espresso', 1, '19.50', 3),
+    (1, 'Mocha', 1, '22.00', 4)

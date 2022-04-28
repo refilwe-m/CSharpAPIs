@@ -29,6 +29,6 @@ GO
 		OrderedBy INT NOT NULL FOREIGN KEY REFERENCES Customers(CustomerID),
 		CoffeeName VARCHAR(30) NOT NULL,
 		Quantity INT NOT NULL,
-		CoffeePrice MONEY NOT NULL,
+		CoffeePrice SMALLMONEY NOT NULL,
 		OrderAssignee INT NOT NULL FOREIGN KEY REFERENCES Baristas(BaristaID),
 	);
