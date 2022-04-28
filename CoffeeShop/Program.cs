@@ -41,7 +41,7 @@ app.MapDelete("/deleteorder/{id}", (int id) => CoffeeShopController.DeleteOrder(
 app.MapDelete("/deletecustomer/{id}", (int id) => CoffeeShopController.DeleteCustomer(id));
 app.MapDelete("/deletebarista/{id}", (int id) => CoffeeShopController.DeleteBarista(id));
 
-
+app.MapPut("/updateorder/{id}", (int id, CoffeeShop.Controllers.Order order) => CoffeeShopController.UpdateOrder(order,id));
 app.MapControllers();
 
 app.Run();

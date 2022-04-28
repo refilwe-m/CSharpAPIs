@@ -66,7 +66,7 @@ namespace CoffeeShop.Controllers
         {
             var postedOrder = order;
             //Console.WriteLine(postedOrder.CoffeeName);
-            CoffeeShopQuery.RunQuery($"INSERT INTO Orders(OrderedBy,CoffeeName,Quantity,CoffeePrice,OrderAssignee) VALUES('{order.CustomerID}', '{order.CoffeeName}', {order.Quantity}, {order.Price}, '{order.BaristaID}')");
+            CoffeeShopQuery.AddOrder(postedOrder);
             return "Order Added";
         }
 
@@ -74,7 +74,7 @@ namespace CoffeeShop.Controllers
         public static string AddCustomer([FromBody] Customer customer)
         {
             var postedCustomer = customer;
-            CoffeeShopQuery.RunQuery($"INSERT INTO Customers(FirstName,LastName,Birthday,BirthMonth,Race,Email) VALUES('{customer.FirstName}', '{customer.LastName}', '{customer.BirthDay}', '{customer.BirthMonth}', '{customer.Race}','{customer.Email}')");
+            CoffeeShopQuery.AddCustomer(postedCustomer);
             return "Customer Added";
         }
 
@@ -82,31 +82,39 @@ namespace CoffeeShop.Controllers
         public static string AddBarista([FromBody] Barista barista)
         {
             var postedBarista = barista;
-            CoffeeShopQuery.RunQuery($"INSERT INTO Baristas(FirstName,LastName,Birthday,Email,Phone) VALUES( '{barista.FirstName}', '{barista.LastName}', '{barista.Rating}')");
+            CoffeeShopQuery.AddBarista(postedBarista);
             return "Barista Added";
         }
 
         [HttpDelete("{id}")]
         public static string DeleteOrder(int id)
         {
-            CoffeeShopQuery.RunQuery($"DELETE FROM Orders WHERE OrderID = {id}");
+            CoffeeShopQuery.DeleteOrder(id);
             return "Order Deleted";
         }
 
         [HttpDelete("{id}")]
         public static string DeleteCustomer(int id)
         {
-            CoffeeShopQuery.RunQuery($"DELETE FROM Customers WHERE CustomerID = {id}");
+            CoffeeShopQuery.DeleteCustomer(id);
             return "Customer Deleted";
         }
 
         [HttpDelete("{id}")]
         public static string DeleteBarista(int id)
         {
-            CoffeeShopQuery.RunQuery($"DELETE FROM Baristas WHERE BaristaID = {id}");
+            CoffeeShopQuery.DeleteBarista(id);
             return "Barista Deleted";
         }
-        
+
+        [HttpPut]
+        public static string UpdateOrder([FromBody] Order order,int id)
+        {
+            var postedOrder = order;
+            CoffeeShopQuery.UpdateOrder(postedOrder,id);
+            return "Order Updated";
+        }
+
 
         //return command.ExecuteReader();
         /*  string res = "";
@@ -127,8 +135,9 @@ namespace CoffeeShop.Controllers
 
         public string CoffeeName { get; set; }
         public int Quantity { get; set; }
-        public int Price { get; set; }
+        public int CoffeePrice { get; set; }
         public int BaristaID { get; set; }
+
         //public string OrderDate { get; set; }
         //public string OrderTime { get; set; }  
     }

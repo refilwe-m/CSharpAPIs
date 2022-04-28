@@ -53,7 +53,7 @@ namespace CoffeeShop.Models
 
         public static void AddOrder(Order order)
         {
-            RunQuery($"INSERT INTO Orders VALUES('{order.CustomerID}', '{order.CoffeeName}', {order.Quantity}, {order.Price}, '{order.BaristaID}')");
+            RunQuery($"INSERT INTO Orders VALUES('{order.CustomerID}', '{order.CoffeeName}', {order.Quantity}, {order.CoffeePrice}, '{order.BaristaID}')");
         }
 
         //insert customer
@@ -71,6 +71,16 @@ namespace CoffeeShop.Models
         public static void DeleteOrder(int id)
         {
             RunQuery($"DELETE FROM Orders WHERE OrderID = {id}");
+        }
+
+        public static void DeleteCustomer(int id)
+        {
+            RunQuery($"DELETE FROM Customers WHERE CustomerID = {id}");
+        }
+
+        public static void DeleteBarista(int id)
+        {
+            RunQuery($"DELETE FROM Baristas WHERE BaristaID = {id}");
         }
 
         public static void CountAllOrders()
@@ -98,6 +108,12 @@ namespace CoffeeShop.Models
         {
             RunQuery($"SELECT COUNT(*) FROM Customers WHERE MMOB = {month}");
             
+        }
+
+        //updateOrder
+        public static void UpdateOrder(Order order,int id)
+        {
+            RunQuery($"UPDATE Orders SET CoffeeName = '{order.CoffeeName}', Quantity = {order.Quantity}, CoffeePrice = {order.CoffeePrice}, BaristaID = '{order.BaristaID}' WHERE OrderID = {id}");
         }
 
         /* public static string GetUpdate(String tableName)
