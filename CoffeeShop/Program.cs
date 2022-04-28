@@ -40,7 +40,7 @@ app.MapPost("/addbarista", (CoffeeShop.Controllers.Barista barista) => CoffeeSho
 app.MapDelete("/deleteorder/{id}", (int id) => CoffeeShopController.DeleteOrder(id));
 app.MapDelete("/deletecustomer/{id}", (int id) => CoffeeShopController.DeleteCustomer(id));
 app.MapDelete("/deletebarista/{id}", (int id) => CoffeeShopController.DeleteBarista(id));
-
+app.MapPost("/saveFile", (string fileName, string data) => CoffeeShopController.SaveToFile(fileName, data));
 app.MapPut("/updateorder/{id}", (int id, CoffeeShop.Controllers.Order order) => CoffeeShopController.UpdateOrder(order,id));
 app.MapControllers();
 

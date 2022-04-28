@@ -113,7 +113,7 @@ namespace CoffeeShop.Models
         //updateOrder
         public static void UpdateOrder(Order order,int id)
         {
-            RunQuery($"UPDATE Orders SET CoffeeName = '{order.CoffeeName}', Quantity = {order.Quantity}, CoffeePrice = {order.CoffeePrice}, BaristaID = '{order.BaristaID}' WHERE OrderID = {id}");
+            RunQuery($"UPDATE Orders SET OrderedBy = '{order.CustomerID}',CoffeeName = '{order.CoffeeName}', Quantity = {order.Quantity}, CoffeePrice = {order.CoffeePrice}, OrderAssignee = '{order.BaristaID}' WHERE OrderID = {id}");
         }
 
         /* public static string GetUpdate(String tableName)

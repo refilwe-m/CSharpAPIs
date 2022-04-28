@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using CoffeeShop.Models;
+using CoffeeShop.File;
 
 namespace CoffeeShop.Controllers
 {
@@ -62,6 +63,14 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpPost]
+        //save to file
+        public static void SaveToFile(string fileName, string data)
+        {
+            FileIO.SaveToFile(fileName, data);
+            
+        }
+
+        [HttpPost]
         public static string AddOrder([FromBody] Order order)
         {
             var postedOrder = order;
@@ -114,6 +123,8 @@ namespace CoffeeShop.Controllers
             CoffeeShopQuery.UpdateOrder(postedOrder,id);
             return "Order Updated";
         }
+
+
 
 
         //return command.ExecuteReader();
