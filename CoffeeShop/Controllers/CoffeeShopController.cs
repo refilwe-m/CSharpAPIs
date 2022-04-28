@@ -202,7 +202,7 @@ namespace CoffeeShop.Controllers
             try
             {
                 CoffeeShopQuery.AddOrder(order);
-                 return "Order Added";
+                return "Order Added";
 
             }
             catch (Exception)
@@ -381,7 +381,17 @@ namespace CoffeeShop.Controllers
     {
         public int CustomerID { get; set; }
 
-        public string CoffeeName { get; set; }
+        public string CoffeeName
+        {
+            get
+            {
+                return CoffeeName;
+            }
+            set
+            {
+                CoffeeName = value;
+            }
+        }
         public int Quantity { get; set; }
         public int CoffeePrice { get; set; }
         public int BaristaID { get; set; }
@@ -392,18 +402,96 @@ namespace CoffeeShop.Controllers
 
     public class Customer
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string BirthDay { get; set; }
-        public string BirthMonth { get; set; }
-        public string Race { get; set; }
-        public string Email { get; set; }
+        public string FirstName
+        {
+            get
+            {
+                return FirstName;
+            }
+            set
+            {
+                FirstName = value;
+
+            }
+        }
+        public string LastName
+        {
+            get
+            {
+                return LastName;
+            }
+            set
+            {
+                LastName = value;
+            }
+        }
+        public string BirthDay
+        {
+            get
+            {
+                return BirthDay;
+            }
+            set
+            {
+                BirthDay = value;
+            }
+        }
+        public string BirthMonth
+        {
+            get
+            {
+                return BirthMonth;
+            }
+            set
+            {
+                BirthMonth = value;
+            }
+        }
+        public string Race
+        {
+            get
+            {
+                return Race;
+            }
+            set { Race = value; }
+        }
+        public string Email
+        {
+            get
+            {
+                return Email;
+            }
+            set
+            {
+                Email = value;
+            }
+        }
     }
 
     public class Barista
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string FirstName
+        {
+            get
+            {
+                return FirstName;
+            }
+            set
+            {
+                FirstName = value;
+            }
+        }
+        public string LastName
+        {
+            get
+            {
+                return LastName;
+            }
+            set
+            {
+                LastName = value;
+            }
+        }
 
         public int Rating { get; set; }
 
