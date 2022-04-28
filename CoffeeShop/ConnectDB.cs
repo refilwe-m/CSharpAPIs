@@ -7,7 +7,8 @@ namespace CoffeeShop.Configuration
         {
             var connection = new SqlConnection("Server=localhost;Database=CoffeeShopDB;Trusted_Connection=True;");
             connection.Open();
-            Console.WriteLine($"***\n{connection.Database} Successfully Opened\n***");
+            Console.WriteLine($"***{connection.Database} Successfully Opened***");
+            
             return connection;
         }
 

@@ -28,6 +28,7 @@ app.MapGet("/orders", () => CoffeeShopController.GetAllOrders());
 app.MapGet("/customers", () => CoffeeShopController.GetAllCustomers());
 app.MapGet("/baristas", () => CoffeeShopController.GetAllBaristas());
 app.MapGet("/africans", () => CoffeeShopController.CountAllAfricans());
+app.MapGet("/whites", () => CoffeeShopController.CountAllWhites());
 app.MapGet("/birthdays/{m}", (int m) => CoffeeShopController.CountAllBirthdays(m));
 app.MapGet("/countallorders", () => CoffeeShopController.CountAllOrders());
 app.MapGet("/countallcustomers", () => CoffeeShopController.CountAllCoustomers());

@@ -56,6 +56,13 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpGet]
+        public static int CountAllWhites()
+        {
+            CoffeeShopQuery.CountAllWhites();
+            return int.Parse(CoffeeShopQuery.sqlResult);
+        }
+
+        [HttpGet]
         public static int CountAllBirthdays(int month)
         {
             CoffeeShopQuery.CountAllBirthdays(month);
@@ -66,7 +73,7 @@ namespace CoffeeShop.Controllers
         //save to file
         public static void SaveToFile(string fileName, string data)
         {
-            FileIO.SaveToFile(fileName, data);
+            FileIO.SaveToFile(data);
             
         }
 

@@ -104,6 +104,11 @@ namespace CoffeeShop.Models
             RunQuery($"SELECT COUNT(*) FROM Customers WHERE Race = 'Black'");  
         }
 
+        public static void CountAllWhites()
+        {
+            RunQuery($"SELECT COUNT(*) FROM Customers WHERE Race = 'White'");  
+        }
+
         public static void CountAllBirthdays(int month)
         {
             RunQuery($"SELECT COUNT(*) FROM Customers WHERE MMOB = {month}");
