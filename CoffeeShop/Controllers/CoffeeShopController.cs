@@ -30,11 +30,11 @@ namespace CoffeeShop.Controllers
         public static int CountAllAfricans()
         {
             CoffeeShopQuery.CountAllAfricans();
-             return int.Parse(CoffeeShopQuery.sqlResult);
+            return int.Parse(CoffeeShopQuery.sqlResult);
         }
 
         [HttpGet]
-        public static  int CountAllOrders()
+        public static int CountAllOrders()
         {
             CoffeeShopQuery.CountAllOrders();
             return int.Parse(CoffeeShopQuery.sqlResult);
@@ -60,7 +60,7 @@ namespace CoffeeShop.Controllers
             CoffeeShopQuery.CountAllBirthdays(month);
             return int.Parse(CoffeeShopQuery.sqlResult);
         }
-        
+
         [HttpPost]
         public static string AddOrder([FromBody] Order order)
         {
@@ -68,6 +68,22 @@ namespace CoffeeShop.Controllers
             //Console.WriteLine(postedOrder.CoffeeName);
             CoffeeShopQuery.RunQuery($"INSERT INTO Orders(OrderedBy,CoffeeName,Quantity,CoffeePrice,OrderAssignee) VALUES('{order.CustomerID}', '{order.CoffeeName}', {order.Quantity}, {order.Price}, '{order.BaristaID}')");
             return "Order Added";
+        }
+
+        [HttpPost]
+        public static string AddCustomer([FromBody] Customer customer)
+        {
+            var postedCustomer = customer;
+            CoffeeShopQuery.RunQuery($"INSERT INTO Customers(FirstName,LastName,Birthday,BirthMonth,Race,Email) VALUES('{customer.FirstName}', '{customer.LastName}', '{customer.BirthDay}', '{customer.BirthMonth}', '{customer.Race}','{customer.Email}')");
+            return "Customer Added";
+        }
+
+        [HttpPost]
+        public static string AddBarista([FromBody] Barista barista)
+        {
+            var postedBarista = barista;
+            CoffeeShopQuery.RunQuery($"INSERT INTO Baristas(FirstName,LastName,Birthday,Email,Phone) VALUES( '{barista.FirstName}', '{barista.LastName}', '{barista.Rating}')");
+            return "Barista Added";
         }
 
         [HttpDelete("{id}")]
@@ -99,8 +115,25 @@ namespace CoffeeShop.Controllers
         public int Price { get; set; }
         public int BaristaID { get; set; }
         //public string OrderDate { get; set; }
-        //public string OrderTime { get; set; }
+        //public string OrderTime { get; set; }  
+    }
 
-        
+    public class Customer
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string BirthDay { get; set; }
+        public string BirthMonth { get; set; }
+        public string Race { get; set; }
+        public string Email { get; set; }
+    }
+
+    public class Barista
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public int Rating { get; set; }
+
     }
 }

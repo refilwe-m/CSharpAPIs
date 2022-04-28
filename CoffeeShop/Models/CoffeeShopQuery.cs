@@ -56,6 +56,18 @@ namespace CoffeeShop.Models
             RunQuery($"INSERT INTO Orders VALUES('{order.CustomerID}', '{order.CoffeeName}', {order.Quantity}, {order.Price}, '{order.BaristaID}')");
         }
 
+        //insert customer
+        public static void AddCustomer(Customer customer)
+        {
+            RunQuery($"INSERT INTO Customers VALUES('{customer.FirstName}', '{customer.LastName}', '{customer.BirthDay}', '{customer.BirthMonth}','{customer.Race}', '{customer.Email}')");
+        }
+
+        //insert barista
+        public static void AddBarista(Barista barista)
+        {
+            RunQuery($"INSERT INTO Baristas VALUES(''{barista.FirstName}', '{barista.LastName}', '{barista.Rating}')");
+        }
+
         public static void DeleteOrder(int id)
         {
             RunQuery($"DELETE FROM Orders WHERE OrderID = {id}");
