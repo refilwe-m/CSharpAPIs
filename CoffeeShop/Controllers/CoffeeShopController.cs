@@ -12,61 +12,180 @@ namespace CoffeeShop.Controllers
         [HttpGet]
         public static string GetAllOrders()
         {
-            return CoffeeShopQuery.GetAllData("Orders");
+            try
+            {
+                return CoffeeShopQuery.GetAllData("Orders");
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return "Error: {Exception.Message}";
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
+
         }
 
         [HttpGet]
         public static string GetAllCustomers()
         {
-            return CoffeeShopQuery.GetAllData("Customers");
+            try
+            {
+                return CoffeeShopQuery.GetAllData("Customers");
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return "Error: {Exception.Message}";
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpGet]
         public static string GetAllBaristas()
         {
-            return CoffeeShopQuery.GetAllData("Baristas");
+            try
+            {
+                return CoffeeShopQuery.GetAllData("Baristas");
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return "Error: {Exception.Message}";
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpGet]
         public static int CountAllAfricans()
         {
-            CoffeeShopQuery.CountAllAfricans();
-            return int.Parse(CoffeeShopQuery.sqlResult);
+            try
+            {
+                CoffeeShopQuery.CountAllAfricans();
+                return int.Parse(CoffeeShopQuery.sqlResult);
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return -1;
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
+
         }
 
         [HttpGet]
         public static int CountAllOrders()
         {
-            CoffeeShopQuery.CountAllOrders();
-            return int.Parse(CoffeeShopQuery.sqlResult);
+            try
+            {
+                CoffeeShopQuery.CountAllOrders();
+                return int.Parse(CoffeeShopQuery.sqlResult);
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return -1;
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpGet]
         public static int CountAllCoustomers()
         {
-            CoffeeShopQuery.CountAllCustomers();
-            return int.Parse(CoffeeShopQuery.sqlResult);
+            try
+            {
+                CoffeeShopQuery.CountAllCustomers();
+                return int.Parse(CoffeeShopQuery.sqlResult);
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return -1;
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpGet]
         public static int CountAllBaristas()
         {
-            CoffeeShopQuery.CountAllBaristas();
-            return int.Parse(CoffeeShopQuery.sqlResult);
+            try
+            {
+                CoffeeShopQuery.CountAllBaristas();
+                return int.Parse(CoffeeShopQuery.sqlResult);
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return -1;
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpGet]
         public static int CountAllWhites()
         {
-            CoffeeShopQuery.CountAllWhites();
-            return int.Parse(CoffeeShopQuery.sqlResult);
+            try
+            {
+                CoffeeShopQuery.CountAllWhites();
+                return int.Parse(CoffeeShopQuery.sqlResult);
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return -1;
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpGet]
         public static int CountAllBirthdays(int month)
         {
-            CoffeeShopQuery.CountAllBirthdays(month);
-            return int.Parse(CoffeeShopQuery.sqlResult);
+            try
+            {
+                CoffeeShopQuery.CountAllBirthdays(month);
+                return int.Parse(CoffeeShopQuery.sqlResult);
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return -1;
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpPost]
@@ -74,77 +193,188 @@ namespace CoffeeShop.Controllers
         public static void SaveToFile(string fileName, string data)
         {
             FileIO.SaveToFile(data);
-            
+
         }
 
         [HttpPost]
         public static string AddOrder([FromBody] Order order)
         {
-            var postedOrder = order;
-            //Console.WriteLine(postedOrder.CoffeeName);
-            CoffeeShopQuery.AddOrder(postedOrder);
-            return "Order Added";
+            try
+            {
+                CoffeeShopQuery.AddOrder(order);
+                 return "Order Added";
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return "Error: {Exception.Message}";
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpPost]
         public static string AddCustomer([FromBody] Customer customer)
         {
-            var postedCustomer = customer;
-            CoffeeShopQuery.AddCustomer(postedCustomer);
-            return "Customer Added";
+            try
+            {
+                CoffeeShopQuery.AddCustomer(customer);
+                return "Customer Added";
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return "Error: {Exception.Message}";
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpPost]
         public static string AddBarista([FromBody] Barista barista)
         {
-            var postedBarista = barista;
-            CoffeeShopQuery.AddBarista(postedBarista);
-            return "Barista Added";
+            try
+            {
+                CoffeeShopQuery.AddBarista(barista);
+                return "Barista Added";
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return "Error: {Exception.Message}";
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpDelete("{id}")]
         public static string DeleteOrder(int id)
         {
-            CoffeeShopQuery.DeleteOrder(id);
-            return "Order Deleted";
+            try
+            {
+                CoffeeShopQuery.DeleteOrder(id);
+                return "Order Deleted";
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return "Error: {Exception.Message}";
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpDelete("{id}")]
         public static string DeleteCustomer(int id)
         {
-            CoffeeShopQuery.DeleteCustomer(id);
-            return "Customer Deleted";
+            try
+            {
+                CoffeeShopQuery.DeleteCustomer(id);
+                return "Customer Deleted";
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return "Error: {Exception.Message}";
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpDelete("{id}")]
         public static string DeleteBarista(int id)
         {
-            CoffeeShopQuery.DeleteBarista(id);
-            return "Barista Deleted";
+            try
+            {
+                CoffeeShopQuery.DeleteBarista(id);
+                return "Barista Deleted";
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return "Error: {Exception.Message}";
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
         [HttpPut]
-        public static string UpdateOrder([FromBody] Order order,int id)
+        public static string UpdateOrder([FromBody] Order order, int id)
         {
-            var postedOrder = order;
-            CoffeeShopQuery.UpdateOrder(postedOrder,id);
-            return "Order Updated";
+            try
+            {
+                CoffeeShopQuery.UpdateOrder(order, id);
+                return "Order Updated";
+
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return "Error: {Exception.Message}";
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
         }
 
+        [HttpPut]
+        public static string UpdateCustomer([FromBody] Customer customer, int id)
+        {
+            try
+            {
+                CoffeeShopQuery.UpdateCustomer(customer, id);
+                return "Customer Updated";
 
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return "Error: {Exception.Message}";
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
+        }
 
+        [HttpPut]
+        public static string UpdateBarista([FromBody] Barista barista, int id)
+        {
+            try
+            {
+                CoffeeShopQuery.UpdateBarista(barista, id);
+                return "Barista Updated";
 
-        //return command.ExecuteReader();
-        /*  string res = "";
-         var reader = command.ExecuteReader();
-         while (reader.Read())
-         {
-             res+= $"{reader["OrderID"]}  {reader["CoffeeName"]}\n";
-         }
-         return res; */
-
-
-
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: {Exception.Message}");
+                return "Error: {Exception.Message}";
+            }
+            finally
+            {
+                CoffeeShopQuery.Clear();
+            }
+        }
 
     }
     public class Order

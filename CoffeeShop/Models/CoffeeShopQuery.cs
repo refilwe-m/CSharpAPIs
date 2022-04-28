@@ -56,13 +56,11 @@ namespace CoffeeShop.Models
             RunQuery($"INSERT INTO Orders VALUES('{order.CustomerID}', '{order.CoffeeName}', {order.Quantity}, {order.CoffeePrice}, '{order.BaristaID}')");
         }
 
-        //insert customer
         public static void AddCustomer(Customer customer)
         {
             RunQuery($"INSERT INTO Customers VALUES('{customer.FirstName}', '{customer.LastName}', '{customer.BirthDay}', '{customer.BirthMonth}','{customer.Race}', '{customer.Email}')");
         }
 
-        //insert barista
         public static void AddBarista(Barista barista)
         {
             RunQuery($"INSERT INTO Baristas VALUES(''{barista.FirstName}', '{barista.LastName}', '{barista.Rating}')");
@@ -119,6 +117,25 @@ namespace CoffeeShop.Models
         public static void UpdateOrder(Order order,int id)
         {
             RunQuery($"UPDATE Orders SET OrderedBy = '{order.CustomerID}',CoffeeName = '{order.CoffeeName}', Quantity = {order.Quantity}, CoffeePrice = {order.CoffeePrice}, OrderAssignee = '{order.BaristaID}' WHERE OrderID = {id}");
+        }
+
+        //updateCustomer
+        public static void UpdateCustomer(Customer customer,int id)
+        {
+            RunQuery($"UPDATE Customers SET FirstName = '{customer.FirstName}', LastName = '{customer.LastName}', DDOB = '{customer.BirthDay}', MMOB = '{customer.BirthMonth}',Race = '{customer.Race}', Email = '{customer.Email})");
+        }
+
+        //updateBarista
+        public static void UpdateBarista(Barista barista,int id)
+        {
+            RunQuery($"UPDATE Customers SET FirstName = '{barista.FirstName}', LastName = '{barista.LastName}', Rating = '{barista.Rating}')");
+        }
+
+
+
+        public static void Clear()
+        {
+            sqlResult = "";
         }
 
         /* public static string GetUpdate(String tableName)
