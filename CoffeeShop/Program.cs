@@ -24,28 +24,27 @@ app.UseAuthorization();
 
 //app.UseRouting();
 
-app.MapGet("/orders", () => CoffeeShopController.GetAllOrders());
-app.MapGet("/customers", () => CoffeeShopController.GetAllCustomers());
-app.MapGet("/baristas", () => CoffeeShopController.GetAllBaristas());
-app.MapGet("/africans", () => CoffeeShopController.CountAllAfricans());
-app.MapGet("/whites", () => CoffeeShopController.CountAllWhites());
-app.MapGet("/birthdays/{m}", (int m) => CoffeeShopController.CountAllBirthdays(m));
-app.MapGet("/countallorders", () => CoffeeShopController.CountAllOrders());
-app.MapGet("/countallcustomers", () => CoffeeShopController.CountAllCoustomers());
-app.MapGet("/countallbaristas", () => CoffeeShopController.CountAllBaristas());
+app.MapGet("/orders", () => CoffeeShopController.GGetAllOrders());
+app.MapGet("/customers", () => CoffeeShopController.GGetAllCustomers());
+app.MapGet("/baristas", () => CoffeeShopController.GGetAllBaristas());
+app.MapGet("/birthdays/{m}", (int m) => CoffeeShopController.GCountAllBirthdays(m));
+app.Map("/africans", () => CoffeeShopController.GCountAllAfricans());
+app.MapGet("/countallorders", () => CoffeeShopController.GCountAllOrders());
+app.MapGet("/countallcustomers", () => CoffeeShopController.GCountAllCoustomers());
+app.MapGet("/countallbaristas", () => CoffeeShopController.GCountAllBaristas());
 
-app.MapPost("/addorder", (CoffeeShop.Controllers.Order order) => CoffeeShopController.AddOrder(order));
-app.MapPost("/addcustomer", (CoffeeShop.Controllers.Customer customer) => CoffeeShopController.AddCustomer(customer));
-app.MapPost("/addbarista", (CoffeeShop.Controllers.Barista barista) => CoffeeShopController.AddBarista(barista));
-app.MapPost("/saveFile", () => CoffeeShopController.SaveToFile());
+app.MapPost("/addorder", (CoffeeShop.Utilities.Order order) => CoffeeShopController.PAddOrder(order));
+app.MapPost("/addcustomer", (CoffeeShop.Utilities.Customer customer) => CoffeeShop.Controllers.CoffeeShopController.PAddCustomer(customer));
+app.MapPost("/addbarista", (CoffeeShop.Utilities.Barista barista) => CoffeeShopController.PAddBarista(barista));
+app.MapPost("/saveFile", () => CoffeeShopController.PSaveToFile());
 
-app.MapDelete("/deleteorder/{id}", (int id) => CoffeeShopController.DeleteOrder(id));
-app.MapDelete("/deletecustomer/{id}", (int id) => CoffeeShopController.DeleteCustomer(id));
-app.MapDelete("/deletebarista/{id}", (int id) => CoffeeShopController.DeleteBarista(id));
+app.MapDelete("/deleteorder/{id}", (int id) => CoffeeShopController.DDeleteOrder(id));
+app.MapDelete("/deletecustomer/{id}", (int id) => CoffeeShopController.DDeleteCustomer(id));
+app.MapDelete("/deletebarista/{id}", (int id) => CoffeeShopController.DDeleteBarista(id));
 
-app.MapPut("/updateorder/{id}", (int id, CoffeeShop.Controllers.Order order) => CoffeeShopController.UpdateOrder(order,id));
-app.MapPut("/updatecustomer/{id}", (int id, CoffeeShop.Controllers.Customer customer) => CoffeeShopController.UpdateCustomer(customer,id));
-app.MapPut("/updatebarista/{id}", (int id, CoffeeShop.Controllers.Barista barista) => CoffeeShopController.UpdateBarista(barista,id));
+app.MapPut("/updateorder/{id}", (int id, CoffeeShop.Utilities.Order order) => CoffeeShopController.UUpdateOrder(order,id));
+app.MapPut("/updatecustomer/{id}", (int id, CoffeeShop.Utilities.Customer customer) => CoffeeShopController.UUpdateCustomer(customer,id));
+app.MapPut("/updatebarista/{id}", (int id, CoffeeShop.Utilities.Barista barista) => CoffeeShopController.UUpdateBarista(barista,id));
 
 app.MapControllers();
 

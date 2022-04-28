@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CoffeeShop.Models;
 using CoffeeShop.File;
+using CoffeeShop.Utilities;
 
 namespace CoffeeShop.Controllers
 {
@@ -10,7 +11,7 @@ namespace CoffeeShop.Controllers
     public class CoffeeShopController
     {
         [HttpGet]
-        public static string GetAllOrders()
+        public static string GGetAllOrders()
         {
             try
             {
@@ -30,7 +31,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpGet]
-        public static string GetAllCustomers()
+        public static string GGetAllCustomers()
         {
             try
             {
@@ -49,7 +50,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpGet]
-        public static string GetAllBaristas()
+        public static string GGetAllBaristas()
         {
             try
             {
@@ -68,7 +69,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpGet]
-        public static int CountAllAfricans()
+        public static int GCountAllAfricans()
         {
             try
             {
@@ -89,7 +90,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpGet]
-        public static int CountAllOrders()
+        public static int GCountAllOrders()
         {
             try
             {
@@ -109,7 +110,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpGet]
-        public static int CountAllCoustomers()
+        public static int GCountAllCoustomers()
         {
             try
             {
@@ -129,7 +130,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpGet]
-        public static int CountAllBaristas()
+        public static int GCountAllBaristas()
         {
             try
             {
@@ -149,7 +150,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpGet]
-        public static int CountAllWhites()
+        public static int GCountAllWhites()
         {
             try
             {
@@ -169,7 +170,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpGet]
-        public static int CountAllBirthdays(int month)
+        public static int GCountAllBirthdays(int month)
         {
             try
             {
@@ -189,15 +190,15 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpPost]
-        //save to file
-        public static void SaveToFile()
-        { 
-            string data = "{" + $"\n'African Coffee Lovers':'{CountAllAfricans()}',\n'Orders':'{CountAllOrders()}',\n'Customers':'{CountAllCoustomers()}',\n'Baristas':'{CountAllBaristas()}',\n'Whites':'{CountAllWhites()},',\n'Birthdays':'{CountAllBirthdays(1)}'" + "}";
-            FileIO.SaveToFile(data.Replace("'","\""));
+        public static void PSaveToFile()
+        {
+            string data = "{" + $"\n'African Coffee Lovers':'{GCountAllAfricans()}',\n'Orders':'{GCountAllOrders()}',\n'Customers':'{GCountAllCoustomers()}',\n'Baristas':'{GCountAllBaristas()}',\n'Whites':'{GCountAllWhites()},',\n'Birthdays':'{GCountAllBirthdays(1)}'" + "}";
+            FileIO.SaveToFile(data.Replace("'", "\""));
         }
 
         [HttpPost]
-        public static string AddOrder([FromBody] Order order)
+        [Produces("application/json")]
+        public static string PAddOrder([FromBody] CoffeeShop.Utilities.Order order)
         {
             try
             {
@@ -217,7 +218,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpPost]
-        public static string AddCustomer([FromBody] Customer customer)
+        public static string PAddCustomer([FromBody] CoffeeShop.Utilities.Customer customer)
         {
             try
             {
@@ -237,7 +238,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpPost]
-        public static string AddBarista([FromBody] Barista barista)
+        public static string PAddBarista([FromBody] CoffeeShop.Utilities.Barista barista)
         {
             try
             {
@@ -257,7 +258,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpDelete("{id}")]
-        public static string DeleteOrder(int id)
+        public static string DDeleteOrder(int id)
         {
             try
             {
@@ -277,7 +278,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpDelete("{id}")]
-        public static string DeleteCustomer(int id)
+        public static string DDeleteCustomer(int id)
         {
             try
             {
@@ -297,7 +298,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpDelete("{id}")]
-        public static string DeleteBarista(int id)
+        public static string DDeleteBarista(int id)
         {
             try
             {
@@ -317,7 +318,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpPut]
-        public static string UpdateOrder([FromBody] Order order, int id)
+        public static string UUpdateOrder([FromBody] Order order, int id)
         {
             try
             {
@@ -337,7 +338,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpPut]
-        public static string UpdateCustomer([FromBody] Customer customer, int id)
+        public static string UUpdateCustomer([FromBody] Customer customer, int id)
         {
             try
             {
@@ -357,7 +358,7 @@ namespace CoffeeShop.Controllers
         }
 
         [HttpPut]
-        public static string UpdateBarista([FromBody] Barista barista, int id)
+        public static string UUpdateBarista([FromBody] Barista barista, int id)
         {
             try
             {
@@ -377,7 +378,8 @@ namespace CoffeeShop.Controllers
         }
 
     }
-    public class Order
+    /* public class Order
+    
     {
         public int CustomerID { get; set; }
 
@@ -496,4 +498,5 @@ namespace CoffeeShop.Controllers
         public int Rating { get; set; }
 
     }
+ */
 }

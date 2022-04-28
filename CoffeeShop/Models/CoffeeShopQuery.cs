@@ -1,6 +1,7 @@
 using System.Data.SqlClient;
 using CoffeeShop.Configuration;
 using CoffeeShop.Controllers;
+using CoffeeShop.Utilities;
 
 namespace CoffeeShop.Models
 {
@@ -14,7 +15,7 @@ namespace CoffeeShop.Models
 
         public static void RunQuery(string query)
         {
-            var connection = ConnectDB.ConnectToDB();
+            SqlConnection connection = ConnectDB.ConnectToDB();
             try
             {
                 var reader = new SqlCommand(query, connection).ExecuteReader();
@@ -53,7 +54,7 @@ namespace CoffeeShop.Models
 
         public static void AddOrder(Order order)
         {
-            RunQuery($"INSERT INTO Orders VALUES('{order.CustomerID}', '{order.CoffeeName}', {order.Quantity}, {order.CoffeePrice}, '{order.BaristaID}')");
+            RunQuery($"INSERT INTO Orders VALUES({order.CustomerID}, '{order.CoffeeName}', {order.Quantity}, '{order.CoffeePrice}', {order.BaristaID})");
         }
 
         public static void AddCustomer(Customer customer)
