@@ -14,7 +14,15 @@ VALUES
         'refilwe@bbd.co.za'
     ),
     ('John', 'Doe', 1, 1, 'White', 'john@bbd.co.za'),
-    ('Jane', 'Doe', 22, 4, 'White', 'jane@bbd.co.za');
+    ('Jane', 'Doe', 22, 4, 'White', 'jane@bbd.co.za'),
+    (
+        'Merriam',
+        'Mashile',
+        10,
+        12,
+        'Black',
+        'merriam@bbd.co.za'
+    );
 
 GO
 INSERT INTO
