@@ -83,13 +83,13 @@ namespace CoffeeShop.Models
 
         public static void CountAllOrders()
         {
-            RunQuery($"SELECT COUNT(*) FROM Orders");        
+            RunQuery($"SELECT COUNT(*) FROM Orders");
         }
 
         public static void CountAllCustomers()
         {
             RunQuery($"SELECT COUNT(*) FROM Customers");
-           
+
         }
 
         public static void CountAllBaristas()
@@ -99,38 +99,37 @@ namespace CoffeeShop.Models
 
         public static void CountAllAfricans()
         {
-            RunQuery($"SELECT COUNT(*) FROM Customers WHERE Race = 'Black'");  
+            RunQuery($"SELECT COUNT(*) FROM Customers WHERE Race = 'Black'");
         }
 
         public static void CountAllWhites()
         {
-            RunQuery($"SELECT COUNT(*) FROM Customers WHERE Race = 'White'");  
+            RunQuery($"SELECT COUNT(*) FROM Customers WHERE Race = 'White'");
         }
 
         public static void CountAllBirthdays(int month)
         {
             RunQuery($"SELECT COUNT(*) FROM Customers WHERE MMOB = {month}");
-            
+
         }
 
         //updateOrder
-        public static void UpdateOrder(Order order,int id)
+        public static void UpdateOrder(Order order, int id)
         {
             RunQuery($"UPDATE Orders SET OrderedBy = '{order.CustomerID}',CoffeeName = '{order.CoffeeName}', Quantity = {order.Quantity}, CoffeePrice = {order.CoffeePrice}, OrderAssignee = '{order.BaristaID}' WHERE OrderID = {id}");
         }
 
         //updateCustomer
-        public static void UpdateCustomer(Customer customer,int id)
+        public static void UpdateCustomer(Customer customer, int id)
         {
             RunQuery($"UPDATE Customers SET FirstName = '{customer.FirstName}', LastName = '{customer.LastName}', DDOB = '{customer.BirthDay}', MMOB = '{customer.BirthMonth}',Race = '{customer.Race}', Email = '{customer.Email})");
         }
 
         //updateBarista
-        public static void UpdateBarista(Barista barista,int id)
+        public static void UpdateBarista(Barista barista, int id)
         {
             RunQuery($"UPDATE Customers SET FirstName = '{barista.FirstName}', LastName = '{barista.LastName}', Rating = '{barista.Rating}')");
         }
-
 
 
         public static void Clear()

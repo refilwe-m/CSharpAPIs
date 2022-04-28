@@ -6,7 +6,7 @@ namespace CoffeeShop.Controllers
 {
     [Produces("application/json")]
     [ApiController]
-    //[Route("api/[controller]/[action]")]
+
     public class CoffeeShopController
     {
         [HttpGet]
@@ -190,10 +190,10 @@ namespace CoffeeShop.Controllers
 
         [HttpPost]
         //save to file
-        public static void SaveToFile(string fileName, string data)
-        {
-            FileIO.SaveToFile(data);
-
+        public static void SaveToFile()
+        { 
+            string data = "{" + $"\n'African Coffee Lovers':'{CountAllAfricans()}',\n'Orders':'{CountAllOrders()}',\n'Customers':'{CountAllCoustomers()}',\n'Baristas':'{CountAllBaristas()}',\n'Whites':'{CountAllWhites()},',\n'Birthdays':'{CountAllBirthdays(1)}'" + "}";
+            FileIO.SaveToFile(data.Replace("'","\""));
         }
 
         [HttpPost]

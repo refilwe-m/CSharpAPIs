@@ -37,13 +37,16 @@ app.MapGet("/countallbaristas", () => CoffeeShopController.CountAllBaristas());
 app.MapPost("/addorder", (CoffeeShop.Controllers.Order order) => CoffeeShopController.AddOrder(order));
 app.MapPost("/addcustomer", (CoffeeShop.Controllers.Customer customer) => CoffeeShopController.AddCustomer(customer));
 app.MapPost("/addbarista", (CoffeeShop.Controllers.Barista barista) => CoffeeShopController.AddBarista(barista));
-app.MapPost("/saveFile", (string fileName, string data) => CoffeeShopController.SaveToFile(fileName, data));
+app.MapPost("/saveFile", () => CoffeeShopController.SaveToFile());
 
 app.MapDelete("/deleteorder/{id}", (int id) => CoffeeShopController.DeleteOrder(id));
 app.MapDelete("/deletecustomer/{id}", (int id) => CoffeeShopController.DeleteCustomer(id));
 app.MapDelete("/deletebarista/{id}", (int id) => CoffeeShopController.DeleteBarista(id));
 
 app.MapPut("/updateorder/{id}", (int id, CoffeeShop.Controllers.Order order) => CoffeeShopController.UpdateOrder(order,id));
+app.MapPut("/updatecustomer/{id}", (int id, CoffeeShop.Controllers.Customer customer) => CoffeeShopController.UpdateCustomer(customer,id));
+app.MapPut("/updatebarista/{id}", (int id, CoffeeShop.Controllers.Barista barista) => CoffeeShopController.UpdateBarista(barista,id));
+
 app.MapControllers();
 
 app.Run();
