@@ -64,7 +64,7 @@ namespace CoffeeShop.Models
 
         public static void AddBarista(Barista barista)
         {
-            RunQuery($"INSERT INTO Baristas VALUES(''{barista.FirstName}', '{barista.LastName}', '{barista.Rating}')");
+            RunQuery($"INSERT INTO Baristas VALUES('{barista.FirstName}', '{barista.LastName}', {barista.Rating})");
         }
 
         public static void DeleteOrder(int id)
@@ -117,19 +117,19 @@ namespace CoffeeShop.Models
         //updateOrder
         public static void UpdateOrder(Order order, int id)
         {
-            RunQuery($"UPDATE Orders SET OrderedBy = '{order.CustomerID}',CoffeeName = '{order.CoffeeName}', Quantity = {order.Quantity}, CoffeePrice = {order.CoffeePrice}, OrderAssignee = '{order.BaristaID}' WHERE OrderID = {id}");
+            RunQuery($"UPDATE Orders SET OrderedBy = {order.CustomerID},CoffeeName = '{order.CoffeeName}', Quantity = {order.Quantity}, CoffeePrice = {order.CoffeePrice}, OrderAssignee = {order.BaristaID} WHERE OrderID = {id}");
         }
 
         //updateCustomer
         public static void UpdateCustomer(Customer customer, int id)
         {
-            RunQuery($"UPDATE Customers SET FirstName = '{customer.FirstName}', LastName = '{customer.LastName}', DDOB = '{customer.BirthDay}', MMOB = '{customer.BirthMonth}',Race = '{customer.Race}', Email = '{customer.Email})");
+            RunQuery($"UPDATE Customers SET FirstName = '{customer.FirstName}', LastName = '{customer.LastName}', DDOB = {customer.BirthDay}, MMOB = {customer.BirthMonth},Race = '{customer.Race}', Email = '{customer.Email}')");
         }
 
         //updateBarista
         public static void UpdateBarista(Barista barista, int id)
         {
-            RunQuery($"UPDATE Customers SET FirstName = '{barista.FirstName}', LastName = '{barista.LastName}', Rating = '{barista.Rating}')");
+            RunQuery($"UPDATE Customers SET FirstName = '{barista.FirstName}', LastName = '{barista.LastName}', Rating = {barista.Rating})");
         }
 
 

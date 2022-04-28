@@ -8,8 +8,11 @@ namespace CoffeeShop.Controllers
     [Produces("application/json")]
     [ApiController]
 
+
+
     public class CoffeeShopController
     {
+        public const string ERROR = "Error: An error has occured.";
         [HttpGet]
         public static string GGetAllOrders()
         {
@@ -20,8 +23,8 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
-                return "Error: {Exception.Message}";
+                Console.WriteLine(ERROR);
+                return ERROR;
             }
             finally
             {
@@ -40,8 +43,8 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
-                return "Error: {Exception.Message}";
+                Console.WriteLine(ERROR);
+                return ERROR;
             }
             finally
             {
@@ -59,8 +62,8 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
-                return "Error: {Exception.Message}";
+                Console.WriteLine(ERROR);
+                return ERROR;
             }
             finally
             {
@@ -79,7 +82,7 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
+                Console.WriteLine(ERROR);
                 return -1;
             }
             finally
@@ -100,7 +103,7 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
+                Console.WriteLine(ERROR);
                 return -1;
             }
             finally
@@ -120,7 +123,7 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
+                Console.WriteLine(ERROR);
                 return -1;
             }
             finally
@@ -140,7 +143,7 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
+                Console.WriteLine(ERROR);
                 return -1;
             }
             finally
@@ -160,7 +163,7 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
+                Console.WriteLine(ERROR);
                 return -1;
             }
             finally
@@ -180,7 +183,7 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
+                Console.WriteLine(ERROR);
                 return -1;
             }
             finally
@@ -208,8 +211,8 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
-                return "Error: {Exception.Message}";
+                Console.WriteLine(ERROR);
+                return ERROR;
             }
             finally
             {
@@ -228,8 +231,8 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
-                return "Error: {Exception.Message}";
+                Console.WriteLine(ERROR);
+                return ERROR;
             }
             finally
             {
@@ -248,8 +251,8 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
-                return "Error: {Exception.Message}";
+                Console.WriteLine("Error: An error has occured.");
+                return "Error: An error has occured.";
             }
             finally
             {
@@ -268,8 +271,8 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
-                return "Error: {Exception.Message}";
+                Console.WriteLine(ERROR);
+                return ERROR;
             }
             finally
             {
@@ -288,8 +291,8 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
-                return "Error: {Exception.Message}";
+                Console.WriteLine(ERROR);
+                return ERROR;
             }
             finally
             {
@@ -308,8 +311,8 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
-                return "Error: {Exception.Message}";
+                Console.WriteLine(ERROR);
+                return ERROR;
             }
             finally
             {
@@ -328,8 +331,9 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
-                return "Error: {Exception.Message}";
+                Console.WriteLine(ERROR);
+                return $"Error: Failed to update order with id: {id}";
+
             }
             finally
             {
@@ -348,8 +352,8 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
-                return "Error: {Exception.Message}";
+                Console.WriteLine(ERROR);
+                return ERROR;
             }
             finally
             {
@@ -368,8 +372,8 @@ namespace CoffeeShop.Controllers
             }
             catch (Exception)
             {
-                Console.WriteLine("Error: {Exception.Message}");
-                return "Error: {Exception.Message}";
+                Console.WriteLine(ERROR);
+                return ERROR;
             }
             finally
             {
