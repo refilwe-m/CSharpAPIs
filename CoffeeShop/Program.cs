@@ -27,6 +27,12 @@ app.UseAuthorization();
 app.MapGet("/orders", () => CoffeeShopController.GetAllOrders());
 app.MapGet("/customers", () => CoffeeShopController.GetAllCustomers());
 app.MapGet("/baristas", () => CoffeeShopController.GetAllBaristas());
+app.MapGet("/africans", () => CoffeeShopController.CountAllAfricans());
+
+
+app.MapPost("/addorder", (CoffeeShop.Controllers.Order order) => CoffeeShopController.AddOrder(order));
+app.MapDelete("/deleteorder/{id}", (int id) => CoffeeShopController.DeleteOrder(id));
+
 app.MapControllers();
 
 app.Run();
